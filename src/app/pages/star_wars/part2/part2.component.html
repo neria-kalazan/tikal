@@ -1,0 +1,12 @@
+<div class="container-fluid text-center">
+  <h3>Planets Population Schema</h3>
+
+  <div class="grid-container">
+    <div class="card" *ngFor="let p of planets; index as i" [ngStyle]="{'height.%': +(p.population/maxPopulation)*1000, 'background-color': getRandomColor()}">
+      <div class="card-body">
+        <div>{{ p.name }}</div>
+        <div>{{ p.population | number }}</div>
+      </div>
+    </div>
+  </div>
+</div>

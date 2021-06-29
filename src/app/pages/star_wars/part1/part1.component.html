@@ -1,0 +1,36 @@
+<div class="container-fluid text-center">
+  <h3>Vehicles Information</h3>
+
+  <div *ngIf="busy" class="spinner-border" role="status"></div>
+
+  <table *ngIf="!busy" class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Vehicle name with the largest sum</th>
+        <td>{{ largestSumVehicle.name }}</td>
+      </tr>
+      <tr>
+        <th>Related home planets and their respective population</th>
+        <td>
+          <ul>
+            <li *ngFor="let p of relatedPlanets" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
+              <b>{{ p.name }}:</b>
+              {{ +p.population || 0 | number }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Related pilot names</th>
+        <td>
+          <ul>
+            <li *ngFor="let p of relatedPilots">
+              <span placement="right" [ngbTooltip]="p.pilotsHomeworld[0]?.name">{{ p.name }}</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
